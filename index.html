@@ -43,15 +43,7 @@ This class is heavily based on the WordPress plugin API and most (if not all) of
 <p>Simple, Include the class file in your application bootstrap (setup/load/configuration or whatever you call it) and start hooking your filter and action hooks using the global `$hooks`. Ex:</p>
 <div class="php"><ol><li class="li1"><div class="de1"><span class="kw2">&lt;?php</span></div></li><li class="li2"><div class="de2"><span class="kw1">include_once</span><span class="br0">(</span><span class="st_h">'php-hooks.php'</span><span class="br0">)</span><span class="sy0">;</span></div></li><li class="li1"><div class="de1"><span class="kw2">global</span> <span class="re0">$hooks</span><span class="sy0">;</span></div></li><li class="li2"><div class="de2"><span class="re0">$hooks</span><span class="sy0">-&gt;</span><span class="me1">add_action</span><span class="br0">(</span><span class="st_h">'header_action'</span><span class="sy0">,</span><span class="st_h">'echo_this_in_header'</span><span class="br0">)</span><span class="sy0">;</span></div></li><li class="li1"><div class="de1">&nbsp; </div></li><li class="li2"><div class="de2"><span class="kw2">function</span> echo_this_in_header<span class="br0">(</span><span class="br0">)</span><span class="br0">{</span></div></li><li class="li1"><div class="de1">&nbsp; &nbsp;<span class="kw1">echo</span> <span class="st_h">'this came from a hooked function'</span><span class="sy0">;</span></div></li><li class="li2"><div class="de2"><span class="br0">}</span></div></li></ol></div>
 <p>then all that is left for you is to call the hooked function when you want anywhere in your aplication, EX:</p>
-<pre><code>
-
-echo '<div id="extra_header">';
-global $hooks;
-$hooks->do_action('header_action');
-echo '</div>';
-
-</code></pre>
-
+<div class="php"><ol><li class="li1"><div class="de1"><span class="kw1">echo</span> <span class="st_h">'&lt;div id="extra_header"&gt;'</span><span class="sy0">;</span></div></li><li class="li2"><div class="de2"><span class="kw2">global</span> <span class="re0">$hooks</span><span class="sy0">;</span></div></li><li class="li1"><div class="de1"><span class="re0">$hooks</span><span class="sy0">-&gt;</span><span class="me1">do_action</span><span class="br0">(</span><span class="st_h">'header_action'</span><span class="br0">)</span><span class="sy0">;</span></div></li><li class="li2"><div class="de2"><span class="kw1">echo</span> <span class="st_h">'&lt;/div&gt;'</span><span class="sy0">;</span></div></li></ol></div>
 <p>and you output will be:</p><pre><code></code>< div id="extra_header">this came from a hooked function</div></pre>
 
 <h3>Authors and Contributors</h3>
