@@ -63,16 +63,16 @@ function echo_this_in_header(){
 <div class="code_con">
   <pre>
   <code class="m_code php">
-    echo '<div id="extra_header">';
+    echo '&lt;div id="extra_header">';
     global $hooks;
     $hooks->do_action('header_action');
-    echo '</div>';
+    echo '&lt;/div>';
 </code></pre></div>
 <p>and you output will be:</p>
 <div class="code_con">
   <pre>
-  <code class="m_code php">
-        <div id="extra_header">this came from a hooked function</div>
+  <code class="m_code html">
+        &lt;div id="extra_header">this came from a hooked function&lt;/div>
 </code></pre></div>
 
 
