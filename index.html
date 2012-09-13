@@ -8,6 +8,19 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
     <link href="http://yandex.st/highlightjs/7.2/styles/solarized_light.min.css" rel="stylesheet">
+    <style>
+      pre {
+          background: none repeat scroll 0 0 transparent;
+          overflow-x: auto;
+          padding: 0;
+          text-shadow: none;
+      }
+      code, pre {
+          font-family: Monaco,"Bitstream Vera Sans Mono","Lucida Console",Terminal;
+          font-size: 14px;
+          margin-bottom: 30px;
+      }
+    </style>
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -63,16 +76,16 @@ function echo_this_in_header(){
 <div class="code_con">
   <pre>
   <code class="m_code php">
-    echo '&lt;div id="extra_header">';
-    global $hooks;
-    $hooks->do_action('header_action');
-    echo '&lt;/div>';
+echo '&lt;div id="extra_header">';
+global $hooks;
+$hooks->do_action('header_action');
+echo '&lt;/div>';
 </code></pre></div>
 <p>and you output will be:</p>
 <div class="code_con">
   <pre>
   <code class="m_code html">
-        &lt;div id="extra_header">this came from a hooked function&lt;/div>
+&lt;div id="extra_header">this came from a hooked function&lt;/div>
 </code></pre></div>
 
 
