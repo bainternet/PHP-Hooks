@@ -7,11 +7,18 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <link href="http://yandex.st/highlightjs/6.1/styles/dark.min.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <title>Php-hooks by bainternet</title>
-    <style>  div.embedPastebin { background: #eee; border: 1px solid black; }				html.embedPBBody div.embedPastebin { border: none; }				div.embedPastebin div.embedFooter { background: #ccc; font-size: 100%; padding: 0px 6px; }				div.embedPastebin div.embedFooter a,				div.embedPastebin div.embedFooter a:visited { color: blue; }				div.embedPastebin div.embedFooter a:hover { color: red; }				.noLines ol { list-style-type: none; padding-left: 0.5em; }				.embedPastebin{background-color:#F8F8F8;border:1px solid #ddd;font-size:12px;overflow:auto;margin: 0 0 0 0;padding:0 0 0 0;line-height:21px}				.embedPastebin div { line-height:21px; font-family:Consolas, Menlo, Monaco, Lucida Console,'Bitstream Vera Sans Mono','Courier',monospace; }				ol { margin:0; padding: 0 0 0 48px}				li.ln-xtra .de1, li.ln-xtra .de2 {background:#FFFF88;}.php .de1, .php .de2 { margin:0; padding: 0 5px; background:none; vertical-align:top;color:#000;border-left: 1px solid #ccc; margin: 0 0 0 -7px; position: relative; background: #ffffff;}.php  {color:#ACACAC;}.php .imp {font-weight: bold; color: red;}.php li, .php .li1 {background: #fff;}.php .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}.php .kw1 {color: #b1b100;}.php .kw2 {color: #000000; font-weight: bold;}.php .kw3 {color: #990000;}.php .kw4 {color: #009900; font-weight: bold;}.php .co1 {color: #666666; font-style: italic;}.php .co2 {color: #666666; font-style: italic;}.php .co3 {color: #0000cc; font-style: italic;}.php .co4 {color: #009933; font-style: italic;}.php .coMULTI {color: #666666; font-style: italic;}.php .es0 {color: #000099; font-weight: bold;}.php .es1 {color: #000099; font-weight: bold;}.php .es2 {color: #660099; font-weight: bold;}.php .es3 {color: #660099; font-weight: bold;}.php .es4 {color: #006699; font-weight: bold;}.php .es5 {color: #006699; font-weight: bold; font-style: italic;}.php .es6 {color: #009933; font-weight: bold;}.php .es_h {color: #000099; font-weight: bold;}.php .br0 {color: #009900;}.php .sy0 {color: #339933;}.php .sy1 {color: #000000; font-weight: bold;}.php .st0 {color: #0000ff;}.php .st_h {color: #0000ff;}.php .nu0 {color: #cc66cc;}.php .nu8 {color: #208080;}.php .nu12 {color: #208080;}.php .nu19 {color:#800080;}.php .me1 {color: #004000;}.php .me2 {color: #004000;}.php .re0 {color: #000088;}.php .ln-xtra, .php li.ln-xtra, .php div.ln-xtra {color:black;background:#FFFF88;}.php span.xtra { display:block; }			</style>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    <script src="http://yandex.st/highlightjs/6.1/highlight.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('.m_code').each(function(i, e) {hljs.highlightBlock(e, ' ')});
+      });
+    </script>
   </head>
 
   <body>
@@ -41,6 +48,17 @@ This class is heavily based on the WordPress plugin API and most (if not all) of
 <h3>How to Use?</h3>
 
 <p>Simple, Include the class file in your application bootstrap (setup/load/configuration or whatever you call it) and start hooking your filter and action hooks using the global `$hooks`. Ex:</p>
+<div class="code_con">
+  <pre>
+  <code class="m_code php xml">    
+    <?php
+      include_once('php-hooks.php');
+      global $hooks;
+      $hooks->add_action('header_action','echo_this_in_header');
+      function echo_this_in_header(){
+         echo 'this came from a hooked function';
+      }
+</cod></pre></div>
 <div class="php"><ol><li class="li1"><div class="de1"><span class="kw2">&lt;?php</span></div></li><li class="li2"><div class="de2"><span class="kw1">include_once</span><span class="br0">(</span><span class="st_h">'php-hooks.php'</span><span class="br0">)</span><span class="sy0">;</span></div></li><li class="li1"><div class="de1"><span class="kw2">global</span> <span class="re0">$hooks</span><span class="sy0">;</span></div></li><li class="li2"><div class="de2"><span class="re0">$hooks</span><span class="sy0">-&gt;</span><span class="me1">add_action</span><span class="br0">(</span><span class="st_h">'header_action'</span><span class="sy0">,</span><span class="st_h">'echo_this_in_header'</span><span class="br0">)</span><span class="sy0">;</span></div></li><li class="li1"><div class="de1">&nbsp; </div></li><li class="li2"><div class="de2"><span class="kw2">function</span> echo_this_in_header<span class="br0">(</span><span class="br0">)</span><span class="br0">{</span></div></li><li class="li1"><div class="de1">&nbsp; &nbsp;<span class="kw1">echo</span> <span class="st_h">'this came from a hooked function'</span><span class="sy0">;</span></div></li><li class="li2"><div class="de2"><span class="br0">}</span></div></li></ol></div>
 <p>then all that is left for you is to call the hooked function when you want anywhere in your aplication, EX:</p>
 <div class="php"><ol><li class="li1"><div class="de1"><span class="kw1">echo</span> <span class="st_h">'&lt;div id="extra_header"&gt;'</span><span class="sy0">;</span></div></li><li class="li2"><div class="de2"><span class="kw2">global</span> <span class="re0">$hooks</span><span class="sy0">;</span></div></li><li class="li1"><div class="de1"><span class="re0">$hooks</span><span class="sy0">-&gt;</span><span class="me1">do_action</span><span class="br0">(</span><span class="st_h">'header_action'</span><span class="br0">)</span><span class="sy0">;</span></div></li><li class="li2"><div class="de2"><span class="kw1">echo</span> <span class="st_h">'&lt;/div&gt;'</span><span class="sy0">;</span></div></li></ol></div>
