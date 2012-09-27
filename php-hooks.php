@@ -8,7 +8,7 @@
  * This class is heavily based on the WordPress plugin API and most (if not all) of the code comes from there.
  * 
  * 
- * @version 0.1
+ * @version 0.1.1
  * @copyright 2011 - 2012
  * @author Ohad Raz (email: admin@bainternet.info)
  * @link http://en.bainternet.info
@@ -83,7 +83,7 @@ if (!class_exists('Hooks')){
      * @return boolean true
      */
     public function add_filter($tag, $function_to_add, $priority = 10, $accepted_args = 1) {
-      $idx = _filter_build_unique_id($tag, $function_to_add, $priority);
+      $idx =  $this->_filter_build_unique_id($tag, $function_to_add, $priority);
       $this->filters[$tag][$priority][$idx] = array('function' => $function_to_add, 'accepted_args' => $accepted_args);
       unset( $this->merged_filters[ $tag ] );
       return true;
