@@ -14,27 +14,30 @@ How to Use?
 
 Simple, Include the class file in your application bootstrap (setup/load/configuration or whatever you call it) and start hooking your filter and action hooks using the global `$hooks`. Ex:
 
-    <?php
-    include_once('php-hooks.php');
-    global $hooks;
-    $hooks->add_action('header_action','echo_this_in_header');
-    
-    function echo_this_in_header(){
-       echo 'this came from a hooked function';
-    }
-    ?>
+```PHP
+include_once('php-hooks.php');
+global $hooks;
+$hooks->add_action('header_action','echo_this_in_header');
+
+function echo_this_in_header(){
+   echo 'this came from a hooked function';
+}
+```
 
 then all that is left for you is to call the hooked function when you want anywhere in your aplication, EX:
 
-    <?php
-    echo '<div id="extra_header">';
-    global $hooks;
-    $hooks->do_action('header_action');
-    echo '</div>';
-    ?>
+```PHP
+echo '<div id="extra_header">';
+global $hooks;
+$hooks->do_action('header_action');
+echo '</div>';
+```
 
 
-and you output will be: `< div id="extra_header">this came from a hooked function</div>`
+and you output will be: 
+```HTML
+<div id="extra_header">this came from a hooked function</div>
+```
 
 Methods
 =======
