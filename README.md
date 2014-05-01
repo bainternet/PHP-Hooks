@@ -148,3 +148,4 @@ Since this class is derived from the WordPress Plugin API so are the license and
   [1]: https://github.com/bainternet/PHP-Hooks/zipball/master
   [2]: https://github.com/bainternet/PHP-Hooks/tarball/master
   [3]: http://bainternet.github.com/PHP-Hooks/
+[![Analytics](https://ga-beacon.appspot.com/UA-50573135-5/PHP-Hooks/main)](https://github.com/bainternet/PHP-Hooks)
