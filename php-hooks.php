@@ -8,7 +8,7 @@
  * This class is heavily based on the WordPress plugin API and most (if not all) of the code comes from there.
  * 
  * 
- * @version 0.1.2
+ * @version 0.1.3
  * @copyright 2012 - 2014
  * @author Ohad Raz (email: admin@bainternet.info)
  * @link http://en.bainternet.info
@@ -527,7 +527,7 @@ if (!class_exists('Hooks')){
           if ( !isset($function[0]->filter_id) ) {
             if ( false === $priority )
               return false;
-            $obj_idx .= isset($this->filters[$tag][$priority]) ? count((array)$$this->filters[$tag][$priority]) : $filter_id_count;
+            $obj_idx .= isset($this->filters[$tag][$priority]) ? count((array)$this->filters[$tag][$priority]) : $filter_id_count;
             $function[0]->filter_id = $filter_id_count;
             ++$filter_id_count;
           } else {
