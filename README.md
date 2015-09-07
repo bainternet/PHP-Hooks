@@ -5,7 +5,7 @@ The PHP Hooks Class is a fork of the WordPress filters hook system rolled in to 
 *  This class is heavily based on the WordPress plugin API and most (if not all) of the code comes from there.
 
 
-Head Over to [http://bainternet.github.com/PHP-Hooks/][3] For more info
+Head Over to [http://bainternet.github.io/PHP-Hooks/][3] For more info
 
 ----------
 
